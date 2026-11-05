@@ -232,3 +232,17 @@ adapts scitbx's cyclic Jacobi algorithm under the
 Builds with the `reduce3` Cargo feature, which the Python package enables, also contain
 [Reduce3](https://github.com/jamaliki/reduce3), which is licensed under the Apache
 License 2.0 and includes code derived from cctbx under the cctbx license.
+
+### EMB-Git fork and downstream development
+
+This fork is maintained at `https://github.com/EMB-Git/Nibbler`. P_sub and
+kaveh-data track its `main` branch; after pushing a change here, run
+`uv sync --upgrade-package nibbler-cif` in kaveh-data, and
+`uv sync --upgrade-package kaveh-data --upgrade-package nibbler-cif` in P_sub
+to resolve and install the current dependency commits. Existing environments and lockfiles do
+not update just because a commit is pushed. Local Rust changes also need the
+normal native-extension rebuild before Python can use them.
+
+Nibbler does not depend on P_sub or kaveh-data: the dependency direction is
+P_sub → kaveh-data → Nibbler (P_sub also declares Nibbler directly). Reduce3
+remains a separate pinned upstream dependency; it is not one of these three forks.

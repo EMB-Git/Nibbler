@@ -5,7 +5,7 @@ edition = "2024"
 rust-version = "1.88"
 description = "Native core for the Nibbler CIF toolkit"
 license = "MIT AND BSD-3-Clause-LBNL AND Apache-2.0"
-repository = "https://github.com/jamaliki/Nibbler"
+repository = "https://github.com/EMB-Git/Nibbler"
 
 [lib]
 name = "_core"
